@@ -1,7 +1,7 @@
-<h2><%= @movie.title %></h2>
-<h2><small><%= @movie.genre %></small></h2>
+<h2><%= @movie.title %> <small><%= @movie.genre %></small></h2>
+<br>
 <strong>Cast</strong>
-<table class="table">
+<table class="table table-striped">
   <% @movie.actors.each do |actor| %>
     <tr><td><%= actor.name %></td></tr>
   <% end %>
@@ -10,4 +10,4 @@
   <p><%= @movie.description %></p>
 </div>
 <br>
-<%= link_to 'Delete', @movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete', @movie, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
