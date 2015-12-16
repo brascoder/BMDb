@@ -1,0 +1,13 @@
+<h2><%= @movie.title %></h2>
+<h2><small><%= @movie.genre %></small></h2>
+<strong>Cast</strong>
+<table class="table">
+  <% @movie.actors.each do |actor| %>
+    <tr><td><%= actor.name %></td></tr>
+  <% end %>
+</table>
+<div>
+  <p><%= @movie.description %></p>
+</div>
+<br>
+<%= link_to 'Delete', @movie, method: :delete, data: { confirm: 'Are you sure?' } %>

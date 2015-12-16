@@ -5,3 +5,8 @@
 <% end %>
 <br>
 <%= link_to 'Add a movie', new_movie_path, class: 'btn btn-primary' %>
+<table class="table">
+  <% @movies.each do |movie| %>
+    <tr><td><%= link_to movie.title, movie %></td></tr>
+  <% end %>
+</table>

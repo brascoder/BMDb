@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
+    @movies = Movie.all()
   end
 
   def new
@@ -27,6 +28,10 @@ class MoviesController < ApplicationController
       flash.now[:alert] = 'There was a problem saving the movie'
       render :new
     end
+  end
+
+  def show
+    @movie = Movie.includes(:actors).find(params[:id])
   end
 
   def search
