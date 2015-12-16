@@ -22,4 +22,8 @@ RSpec.describe Movie, type: :model do
     movie.genre = nil
     expect(movie).to be_invalid
   end
+
+  it 'should be associated with actors by role' do
+    expect(movie).to respond_to(:roles, :actors)
+  end
 end
