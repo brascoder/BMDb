@@ -29,6 +29,19 @@ class MoviesController < ApplicationController
     end
   end
 
+  def search
+    results = []
+    results.concat(Movie.where('lower(title) LIKE ?', "%#{params[:search_string]}%".downcase))
+    results.concat(Movie.where('lower(genre) LIKE ?', "%#{params[:search_string]}%".downcase))
+
+    actors = Actor.where('lower(name) LIKE ?', "%#{params[:search_string]}%".downcase)
+    actors.each do |actor|
+      results.concat(actor.movies)
+    end
+
+    @results = results.uniq
+  end
+
   private
 
   def movie_params
