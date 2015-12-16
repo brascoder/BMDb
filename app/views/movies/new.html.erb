@@ -1,0 +1,13 @@
+<h2>Add a Movie</h2>
+<br>
+<%= form_for @movie do |form| %>
+  <%= form.text_field :title, placeholder: 'Title', class: 'form-control' %>
+  <br>
+  <%= form.text_field :genre, placeholder: 'Genre', class: 'form-control' %>
+  <br>
+  <%= text_field_tag 'actor_string', nil, placeholder: 'Actors', class: 'form-control' %>
+  <br>
+  <%= form.text_area :description, placeholder: 'Description', class: 'form-control' %>
+  <br>
+  <%= form.submit 'Add' %>
+<% end %>
