@@ -26,4 +26,10 @@ RSpec.describe Movie, type: :model do
   it 'should be associated with actors by role' do
     expect(movie).to respond_to(:roles, :actors)
   end
+
+  it 'should create actor records' do
+    movie.save
+    movie.actors.create(name: 'Tom Hanks')
+    expect(Actor.where(name: 'Tom Hanks').count).to eq 1
+  end
 end
